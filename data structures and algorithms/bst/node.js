@@ -26,9 +26,31 @@ class Node {
 			this.right = new Node(data);
 		}
 	}
+	// Searching for a value
+	contains(data) {
+		if(this.data === data) {
+			return this;
+		}
+		// if the given value is greater than the node -- traverse right
+		if(this.data < data && this.right) {
+			return this.right.contains(data);
+		} // If the given value is less than the node -- traverse left
+		else if(this.data > data && this.left) {
+			return this.left.contains(data);
+		}
+		// the element does not exist if we skip the above ti if-else if statements
+		return null;
+	}
 }
 
 let node = new Node(32);
+node.insert(43);
+node.insert(99);
+node.insert(1);
+node.insert(9);
+node.insert(11);
+node.insert(23);
 
+node.contains(1);
 
 module.exports = Node;
