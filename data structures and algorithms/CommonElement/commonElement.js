@@ -5,7 +5,7 @@
 // arr2 = [5,6,7];
 // returns FALSE.
 
-
+// O(n^2) approach
 function commonElements(arr1, arr2) {
 	// Brute force
 	for(let i = 0; i < arr1.length; i++) {
@@ -20,7 +20,7 @@ function commonElements(arr1, arr2) {
 	return false;
 
 }
-
+// O(n) approach -- using loops
 function commonElementsBetter(arr1, arr2) {
 	let map = {};
 	for(let i = 0; i < arr1.length; i++) {
