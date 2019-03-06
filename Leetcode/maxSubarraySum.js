@@ -33,3 +33,24 @@ var maxSubArray = function(nums) {
     return bestSum;
 }
 
+// Better approach
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+		if(nums.length == 0) return 0;
+
+		let prev = nums[0];
+		let bestSeenValue = nums[0];
+
+		for(let i = 1; i < nums.length; i++)
+		{
+			prev = prev > 0 ? nums[i] + prev : nums[i];
+			bestSeenValue = Math.max(bestSeenValue, prev);
+		}
+
+		return bestSeenValue;
+}
+
