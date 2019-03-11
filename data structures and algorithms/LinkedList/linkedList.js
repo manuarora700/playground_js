@@ -90,4 +90,5 @@ ll.append(16);
 ll.prepend(1);
 ll.insert(2, 99);
 ll.insert(0, 37);
+ll.remove(4);
 ll.printListPretty();
