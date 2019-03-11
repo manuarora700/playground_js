@@ -88,6 +88,24 @@ class DoublyLinkedList {
       leader.next = unwantedNode.next;
       this.length--;
     }
+    reverse() {
+      if(!this.head.next) {
+        return this.head;
+      }
+      let first = this.head;
+      this.tail = this.head;
+      let second = first.next;
+
+      while(second) {
+        const temp = second.next;
+        second.next = first;
+        first = second;
+        second = temp;
+      }
+      this.head.next = null;
+      this.head = first;
+      return this.printList();
+    }
 }
 const ll = new DoublyLinkedList(10);
 ll.append(5);
@@ -97,3 +115,4 @@ ll.prepend(1);
 ll.insert(2, 99);
 ll.insert(0, 37);
 ll.printListPretty();
+ll.reverse();
