@@ -65,6 +65,14 @@ class LinkedList {
 
       leaderNode.next = newNode; // point to newnode
       newNode.next = holdingPointer; // point to next node
+      this.length++;
+
+    }
+    remove(index) {
+    	const leader = this.traverseToIndex(index-1);
+    	const unwantedNode = leader.next;
+    	leader.next = unwantedNode.next;
+    	this.length--;
     }
     traverseToIndex(index) {
       // Elementary checks -- Do later.
