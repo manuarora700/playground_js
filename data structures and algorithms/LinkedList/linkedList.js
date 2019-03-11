@@ -50,12 +50,36 @@ class LinkedList {
     	return array.join('->');
     }
 
-    // insert(index, value) {
+    insert(index, value) {
+      // Code here.
+      if(index >= this.length) {
+        return this.append(value);
+      }
+      if(index === 0) {
+        return this.prepend(value);
+      }
 
-    // }
+      const newNode = new Node(value);
+      const leaderNode = this.traverseToIndex(index-1);
+      const holdingPointer = leaderNode.next;
+
+      leaderNode.next = newNode; // point to newnode
+      newNode.next = holdingPointer; // point to next node
+    }
+    traverseToIndex(index) {
+      // Elementary checks -- Do later.
+      let counter = 0;
+      let currentNode = this.head;
+      while(counter !== index) {
+        currentNode = currentNode.next;
+        counter++;
+      }
+      return currentNode;
+    }
 }
-const ll = new LinkedList(10);
 ll.append(5);
 ll.append(16);
 ll.prepend(1);
-ll.printList();
+ll.insert(2, 99);
+ll.insert(0, 37);
+ll.printListPretty();
