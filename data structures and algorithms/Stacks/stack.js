@@ -39,6 +39,17 @@ class Stack {
     this.length--;
     return this;
   }
+    printStack() {
+    let array = [];
+    let topS = this.top;
+    let bottomS = this.bottom;
+    while(topS !== bottomS) {
+      array.push(topS.value);
+      topS = topS.next;
+    }
+    array.push(bottomS.value);
+    console.log(array);
+  }
   //isEmpty
 }
 
