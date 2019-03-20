@@ -39,7 +39,26 @@ class BST {
       }
     }
   }
-  lookup(value) {}
+  lookup(value) {
+    if (!this.root) {
+      return false;
+    }
+    let currentNode = this.root;
+
+    while(currentNode) {
+      if(value < currentNode.value) {
+        currentNode = currentNode.left;
+      } 
+      else if(value > currentNode.value) {
+        currentNode = currentNode.right;
+      }
+      else if(value === currentNode.value) {
+        return currentNode;
+      }
+    }
+
+    return false;
+  }
   remove(value) {}
 }
 
@@ -52,6 +71,7 @@ tree.insert(20)
 tree.insert(170)
 tree.insert(15)
 tree.insert(1)
+tree.lookup(1); // returns leaf node 1 -- lookup working
 JSON.stringify(traverse(tree.root))
 
 //     9
