@@ -12,7 +12,7 @@ function selectionSort(array) {
       }
     }
     //Swap min values
-    let temp = array[i];
+    let temp = array[i]; // Test
     array[i] = array[min];
     array[min] = temp;
   }
