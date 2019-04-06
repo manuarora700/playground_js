@@ -49,3 +49,33 @@ var intersect = function(nums1, nums2) {
     }
     return result;
 };
+
+// Using sorting and multiple pointers concept
+
+
+var intersect = function(nums1, nums2) {
+  if(nums1 === null || nums2 === null) return null;
+    
+  let result = [];
+
+  let i = 0, j = 0;
+  nums1 = nums1.sort(function(a,b) {
+    return a-b;
+  });
+  nums2 = nums2.sort(function(a,b) {
+    return a-b;
+  });
+
+  while(i < nums1.length && j < nums2.length) {
+    if(nums1[i] === nums2[j]) {
+      result.push(nums1[i]);
+      i++;
+      j++;
+    } else if (nums1[i] > nums2[j]) {
+      j++;
+    } else {
+      i++;
+    }
+  }
+  return result;
+}
