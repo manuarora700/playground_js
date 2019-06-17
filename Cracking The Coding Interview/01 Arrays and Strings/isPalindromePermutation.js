@@ -43,5 +43,5 @@ function checkMaxOneOdd(table) {
   return foundOdd;
 }
 
-string = "Taco cat";
+string = "Taco cat paaji ijaap";
 isPalindromePermutation(string);
