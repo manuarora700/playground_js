@@ -8,6 +8,7 @@ Check individually for replacement and addition (Addition is same as deletion).
 Find greater and smaller strings and compute difference.
 Time - O(N)
 Space -O(1)
+THIS IS TWO PASS
 */
 
 function oneAway(firstString, secondString) {
