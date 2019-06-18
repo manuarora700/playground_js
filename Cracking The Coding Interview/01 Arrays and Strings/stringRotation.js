@@ -40,3 +40,33 @@ let stringRotate = function(s1, s2) {
 s1 = "manupaaji";
 s2 = "aajimanup";
 stringRotate(s1, s2)
+
+// Approach 2
+/*
+1. copy s1 twice; i.e. s3 = s1 + s1;
+2. check if s2 is a substring of s3
+
+Eg s1 = "manupaaji"
+	s2 = "paajimanu"
+	s3 = s1+s2 ==> "manupaajimanupaaji";
+
+	check if s2 is a substring of s3 If yes then return true else return false;
+	Much better solution
+Tiime O(N) because string comparision takes linear time
+Space O(N);
+*/
+let stringRotate = function(s1, s2) {
+let s3 = s1+s1
+console.log(s3);
+
+if(!s1 || !s2) return false;
+if (s1.length !== s2.length) return false;
+
+return s3.includes(s2);
+
+}
+
+
+s1 = "manupaaji";
+s2 = "paajimanu";
+stringRotate(s1, s2)
