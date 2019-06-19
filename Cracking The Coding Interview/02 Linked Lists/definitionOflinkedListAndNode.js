@@ -128,6 +128,7 @@ class LinkedList {
   getAt(index) {
     // if(!this.head) return; // list is empty -- unnecessary check, while loop does the check itself.
 
+    // if(index < 0) return;
     let counter = 0;
     let wantIndex = index;
 
@@ -141,7 +142,45 @@ class LinkedList {
     }
     return null; // Index out of bounds hehehe.
   }
+
+
+// Removes a node at a given index
+  removeAt(index) {
+    // beginning checks
+    if(!this.head) return;
+
+    if(index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+    
+    // resuing function getAt()
+    const previous = this.getAt(index - 1);
+    if(!previous || !previous.next) {
+      return;
+    }
+    previous.next = previous.next.next;
+  }
+
+  // Insert at a given index, if index is out of bounds then append at the last.
+
+  insertAt(data, index) {
+    if(!this.head) {
+      this.head = new Node(data); // just insert bro.
+    }
+
+    if(index === 0) {
+      this.head = new Node(data, this.head); // next points to the next element
+    }
+
+    const prev = this.getAt(index - 1) || this.getLast();
+    const node = new Node(data, prev.next);
+    prev.next = node;
+  }
+
+
 }
+
 
 const list = new LinkedList();
 // list.head = new Node(10);
@@ -170,6 +209,19 @@ list.printList();
 list.insertFirst(70);
 list.printList();
 list.insertLast(0);
-list.printList();
 
 list.getAt(0);
+list.getAt(0);
+list.printList();
+
+
+// list.removeAt()
+list.insertFirst(80)
+list.printList();
+list.removeAt(6);
+list.printList();
+list.insertLast(10);
+list.printList();
+
+list.insertAt(35, 2);
+list.printList();
