@@ -14,6 +14,7 @@ function removeMiddle(node, remove) {
 
   return node;
 }
+removeMiddle(list, list.head.next.next.next);
 
 /**
 Approach 2 If head is given.
@@ -29,3 +30,4 @@ function removeMiddle(list, node) {
   curr.next = curr.next.next; // Skip over the node when found
   return node;
 }
+removeMiddle(list, list.head.next.next.next);
