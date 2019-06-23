@@ -5,6 +5,8 @@ Approach 1
 3. Check if the data in the provided linked list is same as that of the reversed linked list. If not same then return false else return true;
 Time - O(N)
 Space - O(N)
+
+
 */
 function palindromell(list) {
   let reversed = new LinkedList();
